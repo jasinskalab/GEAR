@@ -50,7 +50,7 @@ summary(data_hindiCI)
 #there is a an effect of Age.CI, and a marginal interaction between CI and ASL age in English data
 
 #### plot all beh data 
-GEAR_beh<-read.csv("/Users/shakhlonematova/Library/Mobile Documents/com~apple~CloudDocs/PhD/Projects/QP1_GEAR/4 Resub/Data and scripts/GEAR_dPrime_All_noage.csv", header = TRUE)
+GEAR_beh<-read.csv("/GEAR_dPrime_All_noage.csv", header = TRUE)
 gear_df <- subset(GEAR_beh, select = -c(English_d, Hindi_d))
 gear_dp <- subset(GEAR_beh, select = -c(English_hit, Hindi_hit, English_fa, Hindi_fa))
 beh_df <-melt(gear_df, id = c("Group", "Participant.ID"),
@@ -134,7 +134,7 @@ figure <- ggarrange(GEAR.plot, d.plot,
 
 
 ## unilaterals
-Unilaterals<-read.csv("/Users/shakhlonematova/Library/Mobile Documents/com~apple~CloudDocs/PhD/Projects/QP1_GEAR/4 Resub/Data and scripts/GEAR_CI_Unilaterals.csv", header = TRUE)
+Unilaterals<-read.csv("/GEAR_CI_Unilaterals.csv", header = TRUE)
 
 uni_CI<-melt(Unilaterals, id = c("Participant.ID", "Age", "Age.ASL","Age.CI"),
              measured = c("English", "Hindi"), variable.name = "Language", value.name = "d.score")
@@ -172,7 +172,7 @@ summary(uni_modelCI3)
 
 
 ## born deaf only
-deaf_only<-read.csv("/Users/shakhlonematova/Library/Mobile Documents/com~apple~CloudDocs/PhD/Projects/QP1_GEAR/4 Resub/Data and scripts/GEAR_CI_BornDeafOnly.csv", header = TRUE)
+deaf_only<-read.csv("/GEAR_CI_BornDeafOnly.csv", header = TRUE)
 deaf_CI<-melt(deaf_only, id = c("Participant.ID", "Age", "Age.ASL","Age.CI"),
              measured = c("English", "Hindi"), variable.name = "Language", value.name = "d.score")
 
