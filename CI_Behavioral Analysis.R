@@ -29,6 +29,7 @@ DataCI$Language=relevel(factor(DataCI$Language), ref = "Hindi")
 lmer.main<-lmer(d.score ~ Language*Age.ASL*Age.CI + (1|Participant.ID), data=DataCI)
 summary(lmer.main)
 
+
 # Eliminate 3-way interaction by subsetting the data by Language
 
 data_englishCI = subset(DataCI, Language=="English")
@@ -183,3 +184,13 @@ deaf_CI$Language=relevel(factor(deaf_CI$Language), ref = "Hindi")
 # LME Models
 lmer.deaf<-lmer(d.score ~ Language*Age.ASL*Age.CI + (1|Participant.ID), data=deaf_CI)
 summary(lmer.deaf)
+
+## replacing Age of CI with Age of Hearing (age of first exposure to sound via hearing aid/CI)
+
+lmer.main2<-lmer(d.score ~ Language*Age.ASL*age.hear + (1|Participant.ID), data=DataCI)
+summary(lmer.main2)
+
+#adding Side of implantation
+
+lmer.main3<-lmer(d.score ~ Language*Age.ASL*age.hear*side_ci + (1|Participant.ID), data=DataCI)
+summary(lmer.main3)
