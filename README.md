@@ -1,3 +1,3 @@
 # GEAR
-This repository contains behavioral data and scripts
+This repository contains  data and R scripts
 
