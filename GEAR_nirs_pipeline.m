@@ -1,5 +1,5 @@
 %% Add NIRS Toolbox to your path
-addpath(genpath('/Users/shakhlonematova/Documents/MATLAB/nirs-toolbox-master'));
+addpath(genpath('~/nirs-toolbox-master'));
 
 %% Put stims in s
 
@@ -46,7 +46,7 @@ raw = nirs.viz.StimUtil(raw_stimdur);
 %% Add demographics
 nirs.createDemographicsTable(raw)
 % and now manually change the demographics table in Excel
-demographics = readtable(fullfile('/Volumes/data/Data/GEAR/GEAR_PD/NIRS_analysis/CI_demotable.xlsx'))
+demographics = readtable(fullfile('~/CI_demotable.xlsx'))
 job_demo = nirs.modules.AddDemographics
 job_demo.demoTable=demographics;
 raw = job_demo.run(raw);
@@ -63,7 +63,7 @@ preproc1 = nirs.modules.FixFlatChans(preproc1); %with adjusted values in FixFlat
 preproc1 = nirs.modules.FixNaNs(preproc1);
 raw = preproc1.run(raw);
 % The build-in BeerLambertLaw module produces 0-value channels which
-% crashes the GLM model. My version doesn't.
+% crashes the GLM model. This version doesn't.
 preproc2 = BeerLambertLaw_nLambda();
 %preproc2 = nirs.modules.Resample(preproc2);
 if exist('raw_hmr','var')
@@ -124,7 +124,7 @@ HbModel_adj.table
 %% Add behavioral results in demographics
 nirs.createDemographicsTable(SubjectLevelStats)
 % and now manually change the demographics table in Excel
-demographics = readtable(fullfile('/demotable.xlsx'))
+demographics = readtable(fullfile('~/demotable.xlsx'))
 job_demo = nirs.modules.AddDemographics
 job_demo.demoTable=demographics;
 Stats_wbeh = job_demo.run(SubjectLevelStats);
