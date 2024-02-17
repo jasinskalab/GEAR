@@ -58,8 +58,10 @@ nirs.createDemographicsTable(raw)
 % Standard procedure in NIRS Toolbox does not apply motion correction or
 % bandpass filtering because the AR-IRLS model is *supposed* to handle
 % signal quality issues.
-preproc1 = nirs.modules.OpticalDensity();
-raw = preproc1.run(raw);
+preproc = nirs.modules.FixFlatChans; 
+preproc = nirs.modules.FixNaNs(preproc);
+preproc = nirs.modules.OpticalDensity(preproc);
+raw = preproc.run(raw);
 % The build-in BeerLambertLaw module produces 0-value channels which
 % crashes the GLM model. This version doesn't.
 preproc2 = BeerLambertLaw_nLambda();
