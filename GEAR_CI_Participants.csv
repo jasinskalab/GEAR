@@ -1,5 +1,5 @@
 Participant.ID,Age,Age.ASL,Age.CI,English ,Hindi ,age.hear,asl.dur,hear.dur,side_ci
-02Mar15JH84_01,24,15,3,0.842,2.06,3,9,21,l
+1,24,15,3,0.842,2.06,3,9,21,l
 14Sep12WS02_01,18,2,2,0.735,0.983,2,16,16,r
 06Sep13JI34_01,18,3,12,-0.576,0.983,5,15,13,bi
 07Dec12JO07_01,22,4,9,1.58,1.02,4,18,18,l
